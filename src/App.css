@@ -59,7 +59,7 @@
     padding: 2px 5px;
     position: absolute;
     /* top: 0%; */
-    left: 37%;
+    /* left: 37%; */
     transform: translate(-100%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease;

@@ -5,8 +5,11 @@ import './App.css';
 function Main() {
     let { transactions } = useContext(TransactionContext);
     const { addTransaction } = useContext(TransactionContext);
+    const { delTransaction } = useContext(TransactionContext);
+
     console.log(transactions)
     console.log(transactions.length)
+    console.log(delTransaction)
 
 
     let [newAmount, setnewAmount] = useState(0);
@@ -21,6 +24,8 @@ function Main() {
         setnewDesc('')
         setnewAmount(0)
     }
+
+
 
     const getIncome = () => {
         let income = 0;
@@ -41,7 +46,7 @@ function Main() {
     }
     return (
         <div className="container">
-            <h1 className="tracker">Expense Tracker</h1>
+            <h1 className="tracker">Expense Tracker by Muddasser</h1>
             <h2>Your Balance<br /> ${getIncome() + getExpense()}</h2>
             <div className="expense-container">
                 <h3>INCOME<br /> ${getIncome()}</h3>
@@ -55,7 +60,7 @@ function Main() {
                         <li key={index}>
                             <span> {transaction.desc} </span>
                             <span> {transaction.amount} </span>
-                            <button className="delete-btn">X</button>
+                            <button className="delete-btn" onClick={() => delTransaction(transaction.id)}>X</button>
                         </li>
                     )
                 })}
